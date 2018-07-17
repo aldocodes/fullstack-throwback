@@ -6,8 +6,8 @@ import Posts from './components/Posts.jsx';
 import Post from './components/Post.jsx';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       view: 'posts'
@@ -53,7 +53,7 @@ class App extends React.Component {
 
         <div className="main">
           {this.renderView()}
-       </div>
+        </div>
       </div>
     );
   }

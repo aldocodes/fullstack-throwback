@@ -1,0 +1,53 @@
+[
+  {
+      "_id": "5b2854997d0eb70b6cf556bc",
+      "title": "Awful start to the day",
+      "body": "I missed my bus and was 15 minutes late to class :(",
+      "__v": 0,
+      "comments": [],
+      "votes": 0
+  },
+  {
+      "_id": "5b2854997d0eb70b6cf556bd",
+      "title": "My cat hates me",
+      "body": "I woke up this morning and the cat had completely shredded my favorite sweater.",
+      "__v": 0,
+      "comments": [
+          "cats are mean",
+          "bad kitty!"
+      ],
+      "votes": 3
+  },
+  {
+      "_id": "5b2854997d0eb70b6cf556be",
+      "title": "They ruined my order",
+      "body": "I asked for a double-double whipless mochaccino half-caf, but the barista gave me a cup full of lemon peels instead?",
+      "__v": 0,
+      "comments": [
+          "Are you sure you were at a coffee shop?",
+          "that doesn't sound very appeeling lolol",
+          "gross!"
+      ],
+      "votes": 5
+  },
+  {
+      "_id": "5b2854997d0eb70b6cf556bf",
+      "title": "Not enough dogs",
+      "body": "I went to the dog park to play with all the dogs, but there were zero dogs, which is an unacceptably low number of dogs.",
+      "__v": 0,
+      "comments": [],
+      "votes": 0
+  },
+  {
+      "_id": "5b2854997d0eb70b6cf556c0",
+      "title": "They just took all the good seasons of Futurama off of Netflix",
+      "body": "How am I supposed to go to sleep now? I'm so bummed about this.",
+      "__v": 0,
+      "comments": [
+          "My sleep schedule is doomed! DOOOOOOOOMED!",
+          "bad news, everyone"
+      ],
+      "votes": 9
+  }
+]
+

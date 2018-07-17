@@ -12,11 +12,13 @@
   "author": "Allen J Price <curriculum.team@hackreactor.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
     "mongoose": "^4.11.0",
+    "nodemon": "^1.17.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },

@@ -15,6 +15,7 @@ module.exports = {
 
   add (req, res) {
     // res.send('making a new post');
+    console.log('successfully added a post')
     Post.create(req.body)
     .then(result => {
       res.status(201).json(result);

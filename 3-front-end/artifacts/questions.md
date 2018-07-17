@@ -3,67 +3,54 @@
 ## `App` Component
 
 ### Q1. Why do we need the `renderView` method?
-
-<!-- Your answer here! -->
+In order to render the proper component,we need to create a conditional statement inside the renderView.
 
 ### Q2. What value do we expect `this.state.view` to be in order to render the Post component?
-
-<!-- Your answer here! -->
+It cannot be posts or create.
 
 ### Q3. Why do we need to bind `this.changeView` to the keyword this (on line 16)?
-
-<!-- Your answer here! -->
+So that it could refer to the App and not to the component. 
 
 ## `Posts` Component
 
 ### Q4. What interactions with the server will be required in order to fully implement this component?
-
-<!-- Your answer here! -->
+http requests or Axios or Jquery AJAX will be required in order to fully implement this component. 
 
 ### Q5. What information should be kept inside `this.state` in this component?
-
-<!-- Your answer here! -->
+Need a state that waits for the posts to be returned from the server. Another state to render the data of all the posts from the database. 
 
 ### Q6. What props does this component receive from its parent component?
-
-<!-- Your answer here! -->
+this.changeView
 
 ### Q7. What additional components might we create to help implement this component?
-
-<!-- Your answer here! -->
+no.
 
 ## `Post` Component
 
 ### Q8. What interactions with the server will be required in order to fully implement this component?
-
-<!-- Your answer here! -->
+Make an AJAX request to get all posts, make a new post, get post by id, find one post and update votes, and and finally add comments. 
 
 ### Q9. What information should be kept inside `this.state` in this component?
-
-<!-- Your answer here! -->
+Headers, sentences in a paragraph, upvotes, comments, comment-entry, 
 
 ### Q10. What props does this component receive from its parent component?
-
-<!-- Your answer here! -->
+postId
 
 ### Q11. What additional components might we create to help implement this component?
-
-<!-- Your answer here! -->
+nothing additional.
 
 ## `Create` Component
 
 ### Q12. What interactions with the server will be required in order to fully implement this component?
-
-<!-- Your answer here! -->
+Axios call to the right controller.
 
 ### Q13. What information should be kept inside `this.state` in this component?
-
-<!-- Your answer here! -->
+title and body - texts and boxes.
 
 ### Q14. What props does this component receive from its parent component?
-
-<!-- Your answer here! -->
+this.changeView
 
 ### Q15. What additional components might we create to help implement this component?
+None!
 
 <!-- Your answer here! -->

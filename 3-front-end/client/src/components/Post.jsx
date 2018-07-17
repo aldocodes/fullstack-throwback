@@ -1,22 +1,102 @@
-import React from 'react';
-import $ from 'jquery';
+import React from "react";
+import axios from 'axios';
+import $ from "jquery";
 
-const Post = (props) => (
-  <div>
-    <h3>Here is a sample post title</h3>
-    <p>Here's some Kafka filler text to serve as the body for this sample post. One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. </p>
-    <hr />
-    <span className="post-stats">3 upvotes</span>
-    <span className="post-stats post-stats-comments">2 comments</span>
-    <form>
-      <textarea className="comment-input" placeholder="Add your comment here!"></textarea>
-      <button className="comment-submit" type="submit">Save comment</button>
-    </form>
-    <ul>
-      <li className="comment-entry">Here is a sample comment!</li>
-      <li className="comment-entry">Here is another sample comment; I would really not enjoy waking up to find out that i've been turned into a bug!</li>
-    </ul>
-  </div>
-)
+class Post extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      postId: this.props.postId,
+      post: {}
+    };
+  }
+
+  componentDidMount() {
+    console.log('postId--', this.state.postId)
+    this.retrievePost();
+    console.log('retrievePost');
+  }
+
+  retrievePost(){
+    axios
+      .get(`api/posts/${this.state.postId}`)
+      .then(response => {
+        this.setState({
+          post: response.data
+        })
+        console.log('this.state.post', this.state.post)
+      }).catch(function(error){
+        console.log("error", error);
+      });
+  }
+
+  upVotes(){
+    axios({
+      method: 'post',
+      url: `api/posts/${this.state.postId}/votes`,
+      params: {
+        id: this.state.postId
+      }
+    }).then(votes => {
+      this.retrievePost();
+      console.log('this.state.votes', votes);
+    })
+  }
+
+  commentTrack(e){
+    this.setState({
+      comment: e.target.value
+    })
+    console.log('commentTrack--', this.state.comment)
+  }
+
+  postComment(e){
+    e.preventDefault();
+    axios({
+      method: 'post',
+      url: `/api/posts/${this.state.postId}/comments`,
+      data: {
+        comment: this.state.comment
+      },
+      params: {
+        id: this.state.postId
+      }
+    }).then(comments => {
+      this.retrievePost();
+      console.log('this.state.post', this.state.post)
+      console.log('created a comment', comments)
+      console.log('this.state.comment--', this.state.comments)
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>{this.state.post.title}</h3>
+        <p>
+            {this.state.post.body}{" "}
+        </p>
+        <hr />
+        <span onClick={(e) => this.upVotes(e)} className="post-stats">Votes {this.state.post.votes}</span>
+        <span className="post-stats post-stats-comments">Comments {this.state.post.comments ? this.state.post.comments.length : 0}</span>
+        <form>
+          <textarea
+            onKeyUp={(e) => this.commentTrack(e)}
+            className="comment-input"
+            placeholder="Add your comment here!"
+          />
+          <button onClick={(e)=>this.postComment(e)} className="comment-submit" type="submit">
+            Save comment
+          </button>
+        </form>
+        <ul>
+          {this.state.post.comments ? this.state.post.comments.map((comment)=>(
+            <li className="comment-entry">{comment}</li>
+          )): ""}
+        </ul>
+      </div>
+    );
+  }
+}
 export default Post;
